@@ -1,6 +1,6 @@
-#Sat Solvers
+# Sat Solvers
 
-##Building frontend application
+## Building frontend application
 
 To build frontend application is reqired `npm` and `angular cli`
 
