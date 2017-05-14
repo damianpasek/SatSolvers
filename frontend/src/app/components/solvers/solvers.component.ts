@@ -13,14 +13,21 @@ export class SolversComponent implements OnInit {
   solvers: any[];
   selectedSolver: number;
 
+  loading: boolean;
+  error: any;
+  response: string;
+
   constructor(private solverService: SolverService) { }
 
   ngOnInit() {
   }
 
   onFormSubmit() {
+    console.log('Request started...');
     this.solverService.calculate(this.inputValues, this.selectedSolver).then(data => {
+      data = data.json();
       console.log(data);
+      console.log('Request completed...');
     }).catch(err => {
       console.log('Error: ', err);
     });

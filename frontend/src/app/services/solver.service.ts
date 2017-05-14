@@ -8,7 +8,11 @@ export class SolverService {
 
   constructor(private http: Http) { }
 
-  calculate(input: string, solver: number) {
+  getSolvers() {
+
+  }
+
+  calculate(input: string, solver: number): Promise<any> {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({headers});
     const body = { input, solver };

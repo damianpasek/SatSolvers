@@ -13,6 +13,7 @@ ng build -d static
 Django Rest Framework installation 
 ```
 pip install djangorestframework
+pip install django-cors-headers #required for CORS requests
 ```
 
 ## Django Server
