@@ -2,10 +2,16 @@
 
 ## Building frontend application
 
-To build frontend application is reqired `npm` and `angular cli`
+To build frontend application is required `npm` and `angular cli`
 
 ```
 ng build -d static
+```
+
+## Django installation
+
+```
+pip install django
 ```
 
 ## Django Rest Framework
