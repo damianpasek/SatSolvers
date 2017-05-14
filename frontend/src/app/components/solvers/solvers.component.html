@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="form-group">
+      <label for="solver-input">Input values</label>
+      <textarea id="solver-input"
+                class="form-control"
+                [(ngModel)]="inputValues"
+                rows="6"
+                placeholder="Input values...">
+      </textarea>
+    </div>
+    <div class="form-group">
+      <label for="solver-select">Solver</label>
+      <select id="solver-select" class="form-control">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button
+        (click)="onFormSubmit()"
+        type="button"
+        class="btn btn-primary">Calculate</button>
+    </div>
+  </div>
+  <div class="col-md-10 col-md-offset-1">
+    <hr>
+    <pre>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Asperiores cupiditate ea earum est eveniet laboriosam nemo nesciunt
+      recusandae sapiente veritatis.
+    </pre>
+  </div>
+</div>
