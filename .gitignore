@@ -28,6 +28,9 @@ frontend/typings
 frontend/e2e/*.js
 frontend/e2e/*.map
 
+# Django
+__pycache__
+
 # System Files
 .DS_Store
 Thumbs.db
