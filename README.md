@@ -30,3 +30,24 @@ python manage.py runserver
 ```
 
 We are using Python 3, so on linux it might be `python3`
+
+## Database
+
+To create database make migrations
+```
+python manage.py makemigrations
+```
+
+Then migrate data
+```
+python manage.py migrate
+```
+
+## Admin panel
+
+By default admin panel should be available at `/admin` endpoint. 
+
+Creating admin account
+```
+python manage.py createsuperuser
+```
