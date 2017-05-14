@@ -6,12 +6,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SolversComponent } from './components/solvers/solvers.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    SolversComponent
+    SolversComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
