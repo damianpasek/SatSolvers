@@ -1,9 +1,18 @@
 import { Injectable } from '@angular/core';
-import {Http} from '@angular/http';
+import {Http, Headers, RequestOptions} from '@angular/http';
+import {environment} from '../../environments/environment';
+import 'rxjs/Rx';
 
 @Injectable()
 export class SolverService {
 
   constructor(private http: Http) { }
 
+  calculate(input: string, solver: number) {
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({headers});
+    const body = { input, solver };
+
+    return this.http.post(environment.apiUrl, JSON.stringify(body), options).toPromise();
+  }
 }
