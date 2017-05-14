@@ -33,6 +33,7 @@ export class SolversComponent implements OnInit {
       this.response = data;
       this.loading = false;
     }).catch(err => {
+      this.loading = false;
       this.error = err;
     });
   }

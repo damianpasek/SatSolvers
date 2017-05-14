@@ -131,3 +131,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     'public'
 ]
+
+# Rest Framework
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [],
+    'DEFAULT_PERMISSION_CLASSES': [],
+}
