@@ -31,9 +31,12 @@ frontend/e2e/*.map
 
 # Django
 __pycache__
+db.sqlite3
 
 # System Files
 .DS_Store
 Thumbs.db
 
+# Sat Solvers
+/files
 

@@ -37,9 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #3rd party apps
     'rest_framework',
     'corsheaders',
-    'api'
+    # sat solvers apps
+    'api',
+    'backend'
 ]
 
 MIDDLEWARE = [
@@ -131,6 +134,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     'public'
 ]
+
+MEDIA_ROOT = 'files'
 
 # Rest Framework
 
