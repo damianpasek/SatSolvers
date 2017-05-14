@@ -31,9 +31,9 @@ export class SolversComponent implements OnInit {
 
   onFormSubmit() {
     this.loading = true;
-    this.solverService.calculate(this.inputValues, this.selectedSolver).then(data => {
-      data = data.json();
-      this.response = data;
+    this.solverService.calculate(this.inputValues, this.selectedSolver).then(res => {
+      res = res.json();
+      this.response = res.data;
       this.loading = false;
     }).catch(err => {
       this.loading = false;

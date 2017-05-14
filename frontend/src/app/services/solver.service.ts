@@ -17,6 +17,6 @@ export class SolverService {
     const options = new RequestOptions({headers});
     const body = { input, solver };
 
-    return this.http.post(environment.apiUrl, JSON.stringify(body), options).toPromise();
+    return this.http.post(environment.apiUrl, body, options).toPromise();
   }
 }
