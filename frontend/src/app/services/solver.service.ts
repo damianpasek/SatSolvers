@@ -9,7 +9,7 @@ export class SolverService {
   constructor(private http: Http) { }
 
   getSolvers() {
-
+    return this.http.get(environment.apiUrl + 'solvers').map(res => res.json());
   }
 
   calculate(input: string, solver: number): Promise<any> {

@@ -12,8 +12,7 @@
     <div class="form-group">
       <label for="solver-select">Solver</label>
       <select id="solver-select" class="form-control" [(ngModel)]="selectedSolver">
-        <option value="1">Solver 1</option>
-        <option value="2">Solver 2</option>
+        <option *ngFor="let solver of solvers" value="{{solver.id}}">{{solver.title}}</option>
       </select>
     </div>
     <div class="form-group">

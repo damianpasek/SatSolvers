@@ -10,7 +10,7 @@ import {SolverService} from '../../services/solver.service';
 export class SolversComponent implements OnInit {
 
   inputValues: string;
-  solvers: any[];
+  solvers: object[];
   selectedSolver: number;
 
   loading: boolean;
@@ -24,6 +24,9 @@ export class SolversComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.solverService.getSolvers().subscribe(data => {
+      this.solvers = data;
+    });
   }
 
   onFormSubmit() {
