@@ -2,6 +2,7 @@ from pyeda.boolalg.expr import expr, expr2dimacscnf
 
 from backend.models import Solver
 from solvers.classes.GlucoseSolver import GlucoseSolver
+from solvers.classes.LingelingSolver import LingelingSolver
 
 
 def cnf_to_dimacs(cnf_input):
@@ -18,5 +19,7 @@ def get_solver_wrapper_by_id(id):
 
     if slug == 'glucose':
         return GlucoseSolver(binary_path)
+    elif slug == 'lingeling':
+        return LingelingSolver(binary_path)
     else:
         return None
