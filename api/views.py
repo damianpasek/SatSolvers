@@ -12,7 +12,7 @@ from solvers.utils import cnf_to_dimacs, get_solver_wrapper_by_id
 
 class IndexView(APIView):
     def post(self, request):
-        body = json.loads(request.body)
+        body = json.loads(request.body.decode("utf-8"))
         dimacs = cnf_to_dimacs(body['input'])
 
         solver_wrapper = get_solver_wrapper_by_id(body['solver'])
