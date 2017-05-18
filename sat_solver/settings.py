@@ -61,6 +61,8 @@ CORS_ORIGIN_WHITELIST = [
     'localhost:4200'
 ]
 
+FILE_UPLOAD_PERMISSIONS = 0o777
+
 ROOT_URLCONF = 'sat_solver.urls'
 
 TEMPLATES = [

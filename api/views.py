@@ -1,6 +1,8 @@
 import json
 import time
 
+from subprocess import Popen, PIPE
+
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -12,14 +14,13 @@ class IndexView(APIView):
     def post(self, request):
         body = json.loads(request.body)
 
-        # get solver object
         solver = Solver.objects.get(pk=body['solver'])
-        print(solver.solver_binary.path)
+        p = Popen([solver.solver_binary.path, "-model"], stdin=PIPE, stdout=PIPE, stderr=PIPE)
+        output, err = p.communicate(body['input'].encode('utf-8'))
+        print(output.decode("utf-8"))
 
-        # simulate calculations
-        time.sleep(5)
         response = {
-            'data': 'Some response data'
+            'data': output.decode("utf-8")
         }
         return Response(response)
 
