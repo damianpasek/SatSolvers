@@ -43,6 +43,12 @@ Then migrate data
 python manage.py migrate
 ```
 
+## PyEDA
+Library for processing CNF do DIMACS format
+```
+pip install pyeda
+```
+
 ## Admin panel
 
 By default admin panel should be available at `/admin` endpoint. 
