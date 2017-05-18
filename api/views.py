@@ -1,14 +1,13 @@
 import json
-import time
 
-from subprocess import Popen, PIPE
-
+from django.http import Http404
+from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from backend.models import Solver
 from backend.serializers import SolverSerializer
-from solvers.utils import cnf_to_dimacs
+from solvers.utils import cnf_to_dimacs, get_solver_wrapper_by_id
 
 
 class IndexView(APIView):
@@ -16,12 +15,14 @@ class IndexView(APIView):
         body = json.loads(request.body)
         dimacs = cnf_to_dimacs(body['input'])
 
-        solver = Solver.objects.get(pk=body['solver'])
-        p = Popen([solver.solver_binary.path, "-model"], stdin=PIPE, stdout=PIPE, stderr=PIPE)
-        output, err = p.communicate(dimacs.__str__().encode('utf-8'))
+        solver_wrapper = get_solver_wrapper_by_id(body['solver'])
 
-        response = {'data': output.decode("utf-8")}
-        return Response(response)
+        if solver_wrapper is None:
+            raise Http404
+        else:
+            result = solver_wrapper.calculate(dimacs.__str__())
+            response = {'data': result}
+            return Response(response)
 
 
 class SolversList(APIView):
