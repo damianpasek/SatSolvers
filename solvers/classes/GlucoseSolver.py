@@ -9,8 +9,6 @@ class GlucoseSolver(SolverInterface):
         p = Popen([self.binary_path, "-model", "-verb=0"], stdin=PIPE, stdout=PIPE, stderr=PIPE)
         output, err = p.communicate(dimacs.encode('utf-8'))
 
-        print (dimacs)
-
         outstr = ""
         for line in output.decode('utf-8').splitlines():
             if not line.startswith('c') and line != "":
