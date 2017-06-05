@@ -9,6 +9,7 @@ import {SolverService} from '../../services/solver.service';
 })
 export class SolversComponent implements OnInit {
 
+  file: File;
   inputValues: string;
   solvers: object[];
   selectedSolver: number;
@@ -35,6 +36,20 @@ export class SolversComponent implements OnInit {
     } else {
       this.error = 'You should fill form';
     }
+  }
+
+  onFileUpload(event) {
+    this.file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      const text = reader.result;
+      this.updateInputValues(text);
+    };
+    reader.readAsText(this.file);
+  }
+
+  private updateInputValues(inputValues) {
+    this.inputValues = inputValues;
   }
 
   private handleRequest() {

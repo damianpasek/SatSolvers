@@ -2,6 +2,7 @@ from pyeda.boolalg.expr import expr, expr2dimacscnf
 
 from backend.models import Solver
 from solvers.classes.GlucoseSolver import GlucoseSolver
+from solvers.classes.LimmatSolver import LimmatSolver
 from solvers.classes.LingelingSolver import LingelingSolver
 
 
@@ -50,5 +51,7 @@ def get_solver_wrapper_by_id(id):
         return GlucoseSolver(binary_path)
     elif slug == 'lingeling':
         return LingelingSolver(binary_path)
+    elif slug == 'limmat':
+        return LimmatSolver(binary_path)
     else:
         return None
