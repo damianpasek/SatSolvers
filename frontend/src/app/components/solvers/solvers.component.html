@@ -1,6 +1,11 @@
 <div class="container">
   <div class="col-md-10 col-md-offset-1">
     <div class="form-group">
+      <strong>Input file</strong>
+      <p><label for="file_input" class="btn btn-sm btn-default">Choose file...</label></p>
+      <p><input id="file_input" type="file" (change)="onFileUpload($event)" ></p>
+    </div>
+    <div class="form-group">
       <label for="solver-input">Input values</label>
       <textarea id="solver-input"
                 class="form-control"

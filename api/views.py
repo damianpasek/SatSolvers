@@ -1,7 +1,6 @@
 import json
 
 from django.http import Http404
-from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
