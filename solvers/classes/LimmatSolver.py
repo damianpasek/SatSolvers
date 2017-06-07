@@ -1,6 +1,7 @@
 from solvers.SolverInterface import SolverInterface
 from subprocess import Popen, PIPE
 
+
 class LimmatSolver(SolverInterface):
     def __init__(self, path):
         super().__init__(path)
@@ -12,6 +13,12 @@ class LimmatSolver(SolverInterface):
         outstr = ""
         for line in output.decode('utf-8').splitlines():
             if not line.startswith('c') and line != "":
+                #limmat is missing 's' and 'v'
+                if line == "SATISFIABLE" or line == "UNSATISFIABLE":
+                    line = "s "+line
+                else:
+                    line = "v "+line
+
                 outstr += line + "\n"
 
         return outstr

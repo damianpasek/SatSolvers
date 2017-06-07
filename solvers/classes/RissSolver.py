@@ -1,9 +1,8 @@
 from solvers.SolverInterface import SolverInterface
 from subprocess import Popen, PIPE
-import re
 
 
-class LingelingSolver(SolverInterface):
+class RissSolver(SolverInterface):
     def __init__(self, path):
         super().__init__(path)
 
