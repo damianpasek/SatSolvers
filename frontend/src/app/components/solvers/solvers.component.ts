@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SolverService} from '../../services/solver.service';
+import * as FileSaver from 'file-saver';
 
 @Component({
   selector: 'app-solvers',
@@ -48,6 +49,10 @@ export class SolversComponent implements OnInit {
       this.updateInputValues(text);
     };
     reader.readAsText(this.file);
+  }
+
+  saveToFile() {
+    FileSaver.saveAs(new File([this.response], 'result.txt', {type: 'text/plain;charset=utf-8'}))
   }
 
   private updateInputValues(inputValues) {
