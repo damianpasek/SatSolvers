@@ -10,6 +10,7 @@ from solvers.classes.LimmatSolver import LimmatSolver
 from solvers.classes.LingelingSolver import LingelingSolver
 from solvers.classes.RissSolver import RissSolver
 from solvers.classes.JerusatSolver import JerusatSolver
+from solvers.classes.RsatSolver import RsatSolver
 
 import uuid
 
@@ -72,5 +73,7 @@ def get_solver_wrapper_by_id(id):
         return RissSolver(binary_path)
     elif slug == 'jerusat':
         return JerusatSolver(binary_path)
+    elif slug == 'rsat':
+        return RsatSolver(binary_path)
     else:
         return None
