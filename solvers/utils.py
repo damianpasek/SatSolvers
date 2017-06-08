@@ -11,6 +11,7 @@ from solvers.classes.LingelingSolver import LingelingSolver
 from solvers.classes.RissSolver import RissSolver
 from solvers.classes.JerusatSolver import JerusatSolver
 from solvers.classes.RsatSolver import RsatSolver
+from solvers.classes.MinisatSolver import MinisatSolver
 
 import uuid
 
@@ -81,5 +82,7 @@ def get_solver_wrapper_by_id(id):
         return JerusatSolver(binary_path)
     elif slug == 'rsat':
         return RsatSolver(binary_path)
+    elif slug == 'minisat':
+        return MinisatSolver(binary_path)
     else:
         return None
