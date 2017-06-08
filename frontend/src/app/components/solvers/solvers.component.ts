@@ -13,6 +13,7 @@ export class SolversComponent implements OnInit {
   inputValues: string;
   solvers: object[];
   selectedSolver: number;
+  isCnf: boolean;
 
   loading: boolean;
   error: any;
@@ -22,6 +23,7 @@ export class SolversComponent implements OnInit {
     this.loading = false;
     this.error = null;
     this.response = null;
+    this.isCnf = true;
   }
 
   ngOnInit() {
@@ -55,7 +57,7 @@ export class SolversComponent implements OnInit {
   private handleRequest() {
     this.error = null;
     this.toggleLoading();
-    this.solverService.calculate(this.inputValues, this.selectedSolver).then(res => {
+    this.solverService.calculate(this.inputValues, this.selectedSolver, this.isCnf).then(res => {
       res = res.json();
       this.response = res.data;
       this.toggleLoading();
