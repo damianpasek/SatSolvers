@@ -16,8 +16,11 @@ class RsatSolver(SolverInterface):
         default_storage.delete(filepath)
 
         outstr = ""
+        sat = ""
         for line in output.decode('utf-8').splitlines():
-            if not line.startswith('c'):
+            if line.startswith('s'):
+                sat = line
+            elif not line.startswith('c'):
                 outstr += line+"\n"
 
-        return outstr
+        return sat + "\n" + outstr
