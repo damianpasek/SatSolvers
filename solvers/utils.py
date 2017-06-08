@@ -23,6 +23,7 @@ def cnf_to_dimacs(cnf_input):
 
 
 def remap_vals(dimacs_in, remap):
+
     if dimacs_in == "":
         return "UNSATISFIABLE"
     ret = ""
@@ -41,11 +42,16 @@ def remap_vals(dimacs_in, remap):
                 if vint == 0:
                     break
 
-                if vint>0:
-                    ret += remap[vint].name + "\n"
+                if remap:
+                    if vint>0:
+                        ret += remap[vint].name + "\n"
+                    else:
+                        ret += "~" + remap[-vint].name + "\n"
                 else:
-                    ret += "~" + remap[-vint].name + "\n"
-
+                    if vint > 0:
+                        ret += v + "\n"
+                    else:
+                        ret += "~" + v[1:] + "\n"
         else:
             ret += line
     return ret
