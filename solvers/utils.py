@@ -51,7 +51,7 @@ def remap_vals(dimacs_in, remap):
                     if vint > 0:
                         ret += v + "\n"
                     else:
-                        ret += "~" + v + "\n"
+                        ret += "~" + v[1:] + "\n"
         else:
             ret += line
     return ret
