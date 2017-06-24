@@ -1,8 +1,9 @@
 # Sat Solvers
+Web application for calculating formula in CNF/DIMACS via different sat solvers.
 
 ## Building frontend application
 
-To build frontend application is required `npm` and `angular cli`
+To build frontend application there is required `npm` and `angular cli`
 
 ```
 ng build -d static
